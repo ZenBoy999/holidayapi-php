@@ -19,9 +19,14 @@ matrix:
       env: PHPUNIT=7.5
     - php: 7.2
     - php: 7.3
+    - php: 7.4
       env: COVERAGE=true
+    - php: nightly
+  allow_failures:
+    - php: nightly
 
 install:
+  - php --version
   - composer install
   - |
     if [[ $PHPUNIT ]]; then
